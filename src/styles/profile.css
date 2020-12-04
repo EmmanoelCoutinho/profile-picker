@@ -1,0 +1,175 @@
+/* component css settings */
+.template {
+  font-family: "Roboto", sans-serif;
+}
+
+/* header css setings */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: #1f1f1f;
+  height: 14rem;
+}
+.header p {
+  font-size: 1.8rem;
+  font-weight: 600;
+
+  padding: 0 0 5rem 1rem;
+
+  color: #f5f5f5;
+}
+.header button {
+  margin: 0 3.2rem 5rem 0;
+
+  display: flex;
+  align-items: center;
+
+  background: none;
+  color: #f5f5f5;
+  border: none;
+
+  font-size: 2rem;
+  font-weight: 100;
+}
+.header button i {
+  color: #ba3131;
+  margin: 0 0 0 1rem;
+
+  font-size: 2.2rem;
+}
+
+/* avatar css settings */
+.avatar {
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+
+  left: 50%;
+  top: 18%;
+  transform: translateX(-50%) translateY(-50%);
+
+  padding: 0.4rem;
+
+  background: #fff;
+
+  border-radius: 50%;
+}
+.avatar img {
+  width: 12rem;
+  height: 12rem;
+
+  border-radius: 50%;
+}
+
+/* div content css setings */
+.content {
+  margin-top: 12rem;
+  padding-left: 3rem;
+}
+.content i {
+  position: absolute;
+  left: 0%;
+  transform: translateX(-50%);
+
+  padding-right: 2rem;
+
+  color: #ffce00;
+
+  font-size: 5.2rem;
+}
+.content h1 {
+  font-size: 3.2rem;
+}
+.content p {
+  font-size: 1.8rem;
+  font-weight: lighter;
+
+  color: #fff;
+}
+
+/*div followers css settings*/
+.followers-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: #383838;
+
+  margin-top: 4rem;
+
+  height: 12rem;
+}
+.followers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-left: 2rem;
+}
+.followers h1 {
+  font-size: 5rem;
+}
+.followers p {
+  font-size: 1.6rem;
+  font-weight: lighter;
+}
+.following {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin: auto;
+}
+.following h1 {
+  font-size: 5rem;
+}
+.following p {
+  font-size: 1.8rem;
+  font-weight: lighter;
+}
+.repo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-right: 2rem;
+}
+.repo h1 {
+  font-size: 5rem;
+}
+.repo p {
+  font-size: 1.8rem;
+  font-weight: lighter;
+}
+
+/*div bio settings*/
+.bio {
+  margin-top: 4rem;
+
+  height: 100%;
+}
+.bio i {
+  position: absolute;
+  left: 0%;
+  transform: translateX(-50%);
+
+  padding-right: 2rem;
+
+  color: #ffce00;
+
+  font-size: 5.2rem;
+}
+.bio h1 {
+  font-size: 3.2rem;
+  margin-left: 2.5rem;
+}
+.bio p {
+  margin-left: 2.5rem;
+  font-size: 1.8rem;
+  font-weight: lighter;
+
+  color: #fff;
+}
