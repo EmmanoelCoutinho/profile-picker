@@ -1,34 +1,110 @@
 //importing axios and react
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const url = 'https://api.github.com/users';
-const clientId = '944d61c1ca5116b8bcb7';
-const clientSecret = '6c8f48b58f485f563fd2f534a47576b23fd8d5c0';
+import Navbar from './nav';
 
+import { useSelector, /* useDispatch */ } from 'react-redux';
 
-    //fuction to call api data
-    async function getUser() {
-        await axios.get(`${url}/EmmanoelCoutinho?client_id=${clientId}&client_secret=${clientSecret}`)
-        .then(response => console.log(response.data))
-        
-      
+import { Link } from 'react-router-dom';
 
-       // return profile;
+import '../styles/profile.css';
+import '../styles/main.css';
+
+function Template () {
+
+    //const dispatch = useDispatch();
+
+    const input = useSelector(state => state.calculator);
+
+    //const [input,setInput] = useState({input: ''});
+    const [info,setInfo] = useState({
+                login: '' ,
+                name: '' ,
+                email: '' ,
+                location: '' ,
+                company: '' ,
+                bio: '' ,
+                avatar_url: '',
+                followers_url: '' ,
+                following_url: '' ,
+                organization_url: '',
+                starred_url: '' ,
+                public_repos: '' ,
+                public_gists: '' ,
+                followers: '' ,
+                following: '' 
+    });
+
+    const getApi = () => {
+        const url = 'https://api.github.com/users';
+        const clientId = '944d61c1ca5116b8bcb7';
+        const clientSecret = '6c8f48b58f485f563fd2f534a47576b23fd8d5c0';
+
+        axios.get(`${url}/${input}?client_id=${clientId}&client_secret=${clientSecret}`)
+        .then(response => {
+            setInfo(response.data);
+            console.log(response.data);
+        });
     }
+    
 
 
-    const template = () => {
-        return (
-        <h1>Seja bem vindo ao novo componente</h1>
-        );
-    }
+    useEffect(() => {
+        getApi()
+    })
+
+    return (
+        <div className='template'>
+            <header className='header'>
+                    <p>#{info['login']}</p>
+                    <Link to='/'>
+                    <button >Sair 
+                    <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                    </Link>
+            </header>
+            <div class="avatar">
+                <img src={info['avatar_url']} alt='profile_avatar'/>
+            </div>
+            <div class="content">
+                <i id="square" class="fas fa-square"></i>
+                <h1>{info['name']}</h1>
+                <p>{info['email']}</p>
+                <p>{info['location']}</p>
+            </div>
+            <div className="followers-container">
+                <div className="followers">
+                    <h1>{info['followers']}</h1>
+                    <p>Seguidores</p>
+                </div>
+                <div className="following">
+                    <h1>{info['following']}</h1>
+                    <p>Seguindo</p>
+                </div>
+                <div className="repo">
+                    <h1>{info['public_repos']}</h1>
+                    <p>Repos</p>
+                </div>
+            </div>
+            <div className='bio'>
+                <i id="square" class="fas fa-square"></i>
+                <h1>BIO</h1>
+                <p>{info['bio']}</p>
+            </div>
+            <footer>
+                <Navbar /> 
+            </footer>
+        </div>
+    );
+}
+
+export default Template;
+ 
 
 
 
-    //getUser()
-
-    export default template;
+    
 
     
 

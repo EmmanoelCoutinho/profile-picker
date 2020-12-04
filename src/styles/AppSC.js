@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 export const AppSC = styled.div`
-    background: black;
+
+input {
+    width: 5rem:
+}
 
 `

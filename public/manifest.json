@@ -1,9 +1,10 @@
 {
+  "name": "Profile Picker" ,
   "theme_color" : "#ffce00",
   "background_color" : "#292929",
   "display" : "standalone",
-  "scope" : "/",
-  "start_url" : "/",
+  "orientation": "portrait",
+  "start_url" : ".",
   "app_name" : "React-Profile-Picker",
   "short_name" : "Picker",
   "icons": [

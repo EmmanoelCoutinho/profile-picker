@@ -1,27 +1,56 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { AppSC } from '../styles/AppSC';
+import { Link } from 'react-router-dom'
+
+//styled components
+//import { AppSC } from '../styles/AppSC';
+
+//importing styles
+import '../styles/main.css'
+import '../styles/App.css';
+import logo from '../styles/assets/logo.png';
+
+//use redux to take the input.value
+import { useSelector, useDispatch } from 'react-redux'
+import{ sum } from '../store/actions/calculator.actions'
+
 
 function App() {
 
-  // using useState to take the valu of the input
-  const [value, setValue] = useState('');
+  const dispatch = useDispatch();
 
-  console.log(value)
+  const result = useSelector((state) => state.calculator)
+
+  // using useState to take the value of the input
+  const [value, setValue] = useState({result});
+
+  const handleFormSubmit = e => {
+    e.preventDefault();
+  }
+
+  /* const handleInputChange = e => {
+    setValue(e.target.value);
+  } */
 
   return (
-    <AppSC >
+    //<AppSC>
       <div className="App">
-        
-          <input className="search" placeholder="Usuário" required />
-          <Link to="/profile">
-          <button type="submit" className="button" onClick = {() => {
-            const search = document.querySelector('.search').value;
-            setValue(search);
-          }}>Button</button></Link>
 
+          <img className="logo" src={logo} alt=''logo />
+            
+              <form className="form" onChange={handleFormSubmit}>
+              <input className="search" placeholder="   Usuário" required 
+              onChange={(e) => setValue(e.target.value)} />
+                <Link to='/profile'>
+                  <button type="button" className="button" onClick={() => {
+                      dispatch(sum(value))
+                  }}
+                  >Entrar  <i class="fas fa-arrow-right"></i>
+                  </button>
+                </Link>
+              </form>
+            
       </div>
-    </AppSC>
+    //</AppSC>
   );
 }
 
