@@ -3,3 +3,4 @@ node_modules
 .eslint
 debug.log
 .env
+build
