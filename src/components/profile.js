@@ -38,8 +38,8 @@ function Template () {
 
     const getApi = () => {
         const url = 'https://api.github.com/users';
-        const clientId = '944d61c1ca5116b8bcb7';
-        const clientSecret = '6c8f48b58f485f563fd2f534a47576b23fd8d5c0';
+        const clientId = process.env.REACT_APP_CLIENT_ID;
+        const clientSecret = process.env.REACT_APP_CLIENT_SECRET;
 
         axios.get(`${url}/${input}?client_id=${clientId}&client_secret=${clientSecret}`)
         .then(response => {
@@ -48,7 +48,6 @@ function Template () {
         });
     }
     
-
 
     useEffect(() => {
         getApi()
